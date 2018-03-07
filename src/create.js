@@ -91,11 +91,7 @@ var generateIcons = function (platforms) {
   return deferred.promise;
 };
 
-/**
- * Checks if at least one platform was added to the project
- *
- * @return {Promise} resolves if at least one platform was found, rejects otherwise
- */
+// Is there at least a single platform available?
 const atLeastOnePlatformFound = () => {
   const deferred = Q.defer();
   getPlatforms().then((platforms) => {
@@ -114,11 +110,7 @@ const atLeastOnePlatformFound = () => {
   return deferred.promise;
 };
 
-/**
- * Checks if a valid icon file exists
- *
- * @return {Promise} resolves if exists, rejects otherwise
- */
+// Does our beloved fcm.png (_FILE) exist?
 var validIconExists = function () {
   const deferred = Q.defer();
   fs.exists(_FILE, function (exists) {
